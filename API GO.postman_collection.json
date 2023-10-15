@@ -1,0 +1,779 @@
+{
+	"info": {
+		"_postman_id": "948ce11b-b8b8-48c8-b1d1-3214192b4f2a",
+		"name": "API GO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20624986"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyZmFuLm1hdWxhbmFAZ21haWwuY29tIiwiZXhwIjoxNjk2NTI0NzczfQ.qxP3PKj9-_yfnkc1wqZnyYet4s_cixndHd0nQJtofoI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/edu/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"edu",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"irfan\",\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"123451234512\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/users/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User Reguster Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"irfan\",\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"123451234512\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:35:34 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": \"User Created\",\n    \"meta\": null\n}"
+				},
+				{
+					"name": "User Reguster Failed User Exist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"irfan\",\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"123451234512\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:37:13 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "84"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"pq: duplicate key value violates unique constraint \\\"users_email_key\\\"\"\n}"
+				},
+				{
+					"name": "Failed Validation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"irfan\",\n    \"email\" : \"ipann1297\",\n    \"password\" : \"1234512345\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:46:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "148"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation Error\",\n    \"errors\": {\n        \"email\": \"Please provide a valid email address\",\n        \"password\": \"Password should be at least 12 characters long\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"irfan.maulana@gmail.com\",\n    \"password\" : \"123451234512\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/edu/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"edu",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User Login Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"123451234512\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:38:29 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlwYW5uMTI5N0BnbWFpbC5jb20iLCJleHAiOjE2OTczNjYzMDl9.Wd3jh0demsreLqouOIkggaQWJODDtQSO1m4k6JQichk\"\n    },\n    \"meta\": null\n}"
+				},
+				{
+					"name": "User Login Failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"1234512345123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:39:05 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": \"user name and password invalid\",\n    \"meta\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User Detail (based on token email)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyZmFuLm1hdWxhbmFAZ21haWwuY29tIiwiZXhwIjoxNjk2NTI0NzczfQ.qxP3PKj9-_yfnkc1wqZnyYet4s_cixndHd0nQJtofoI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/edu/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"edu",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get User Detail Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:40:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "261"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"irfan\",\n        \"email\": \"ipann1297@gmail.com\",\n        \"password\": \"$2a$10$G9oMg/VkHkiCtDKvyPuutOeO2yGSmVCvcZRaPeXpZUC/guctdindC\",\n        \"is_active\": true,\n        \"created_at\": \"2023-10-15T16:35:34.828835+07:00\",\n        \"updated_at\": \"2023-10-15T16:35:34.828835+07:00\"\n    },\n    \"meta\": null\n}"
+				},
+				{
+					"name": "Failed Missing Token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:39:52 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Missing authorization header\"\n}"
+				}
+			]
+		},
+		{
+			"name": "User Update (based on token email)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlyZmFuLm1hdWxhbmFAZ21haWwuY29tIiwiZXhwIjoxNjk3MzQ4MzkwfQ.uJo7i25iOIgmXAgXeo_T7cy8zOdLx0r629Ter3jrT-A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"irfan maulana\",\n    \"email\" : \"irfan.maulanaya@gmail.com\",\n    \"password\" : \"123451234512\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/edu/users/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"edu",
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User Update Success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"irfan maulana\",\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"123451234512\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:43:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": \"User Updated\",\n    \"meta\": null\n}"
+				},
+				{
+					"name": "Failed Missing Token",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"irfan maulana\",\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"123451234512\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"update"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:43:50 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Missing authorization header\"\n}"
+				},
+				{
+					"name": "Failed Validation",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"\",\n    \"email\" : \"ipann1297@gmail.com\",\n    \"password\" : \"123451234512\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/users/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"update"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST,HEAD,PATCH, OPTIONS, GET, PUT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Oct 2023 09:47:22 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation Error\",\n    \"errors\": {\n        \"name\": \"parameter is empty\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
